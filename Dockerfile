@@ -11,8 +11,9 @@ FROM nginx
 WORKDIR /app
 COPY --from=build /app/myurls ./
 COPY public/* ./public/
+
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY start.sh ./
-COPY nginx.conf /etc/nginx
 
 EXPOSE 80
 CMD [ "sh", "-c", "/app/start.sh" ]
